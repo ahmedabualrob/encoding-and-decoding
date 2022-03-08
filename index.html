@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html >
+        <head>
+            <title>AhmedAbualrob</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+           
+          
+            <style>
+
+            *{
+                bac
+            } 
+            #app{
+                width: 100%;
+                max-width: 100%;
+            }
+            #app p{
+                width: 100%;
+                padding: 14px;
+                background: rgb(112, 91, 204);
+                color: white;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 22px;
+            }
+            #app textarea{
+                width: 100%;
+                border:2px solid rgb(138, 138, 138);
+                outline: none;
+                border-radius: 14px;
+                min-height: 140px;
+            }
+            #app select{
+                width: 100%;
+                padding: 14px;
+                border-radius: 14px;
+                margin-bottom: 14px;
+                
+            }
+            </style>
+    
+        </head>
+        <body dir="rtl">
+
+    
+
+           
+           <main id="app">
+
+               <p>Text </p>
+               <select id="select">
+                   <option value="encode">تشفير النص</option>
+                   <option value="decode">فك تشفير النص</option>
+               </select>
+
+               <textarea id="text"></textarea>
+
+               <p> Result </p>
+               <textarea id="result">
+
+                </textarea>
+
+           </main> 
+
+           <div class="card">
+            <div style="text-align: center;" class="card-header">
+              
+            </div>
+            <div class="card-body" >
+              <blockquote class="blockquote mb-0">
+                <p style="text-align: center;">A site to decrypt ciphertext with a system with
+                    32bit, or encode it with 64bit</p>
+
+            </blockquote>
+            </div>
+          </div>
+
+          <script>
+              let text = "Coder Shiyar";
+let encode_text = window.btoa(text);
+
+let decode_text = window.atob(encode_text);
+
+
+let textarea = document.getElementById("text");
+let result = document.getElementById("result");
+let select = document.getElementById("select");
+
+textarea.addEventListener("input",()=>{
+    make_result();
+});
+select.addEventListener("change",()=>{
+    make_result();
+});
+function make_result(){
+   if(select.value == "decode"){
+    result.value = window.atob(textarea.value) ;
+   }else{
+    result.value = window.btoa(textarea.value) ;
+   }
+}
+
+          </script>
+        </body> 
+    </html>
